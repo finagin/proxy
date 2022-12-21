@@ -3,12 +3,19 @@ function FindProxyForURL(url, host)
     url  = url.toLowerCase();
     host = host.toLowerCase();
 
-    if (isInNet(host, "10.0.0.0", "255.0.0.0") ||
-        isInNet(host, "172.16.0.0",  "255.240.0.0") ||
-        isInNet(host, "192.168.0.0", "255.255.0.0") ||
-        isInNet(host, "127.0.0.0", "255.255.255.0"))
+    isLocal = isInNet(host, "10.0.0.0", "255.0.0.0")
+           || isInNet(host, "172.16.0.0",  "255.240.0.0")
+           || isInNet(host, "192.168.0.0", "255.255.0.0")
+           || isInNet(host, "127.0.0.0", "255.255.255.0");
 
-        return "DIRECT";
-    return "SOCKS 88.212.235.223:1080";
+    if (isLocal) return "DIRECT";
 
+    isYandex = dnsDomainIs(host, ".yandex.org")
+            || shExpMatch(host, "*.yandex.*");
+
+    if (isYandex) {
+        return "SOCKS 88.212.235.223:1080";
+    }
+
+    return "DIRECT";
 }
