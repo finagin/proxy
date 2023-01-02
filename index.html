@@ -10,11 +10,13 @@ function FindProxyForURL(url, host)
 
     if (isLocal) return "DIRECT";
 
-    isYandex = dnsDomainIs(host, ".yandex.org")
+    isYandex = dnsDomainIs(host, ".yandex.ru")
             || shExpMatch(host, "*.yandex.*");
 
-    if (isYandex) {
-        return "SOCKS 88.212.235.223:1080";
+    is2ip = dnsDomainIs(host, ".yandex.ru");
+
+    if (isYandex || is2ip) {
+        return "SOCKS 88.212.235.223:3128";
     }
 
     return "DIRECT";
