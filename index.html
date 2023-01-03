@@ -10,14 +10,16 @@ function FindProxyForURL(url, host)
 
     if (isLocal) return "DIRECT";
 
-    return "SOCKS 88.212.235.223:3128";
-
     isYandex = dnsDomainIs(host, ".yandex.ru")
             || shExpMatch(host, "*.yandex.*");
 
     is2ip = shExpMatch(host, "*.2ip.*");
 
-    if (isYandex || is2ip) {
+    isMTSBank = dnsDomainIs(host, ".mtsbank.ru");
+
+    isAlfaBank = dnsDomainIs(host, ".alfabank.ru");
+
+    if (isYandex || is2ip || isMTSBank || isAlfaBank) {
         return "SOCKS 88.212.235.223:3128";
     }
 
