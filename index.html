@@ -13,7 +13,8 @@ function FindProxyForURL(url, host)
     isYandex = dnsDomainIs(host, ".yandex.ru")
             || shExpMatch(host, "*.yandex.*");
 
-    is2ip = shExpMatch(host, "*.2ip.*");
+    is2ip = dnsDomainIs(host, ".2ip.ru")
+            || shExpMatch(host, "*.2ip.*");
 
     isMTSBank = dnsDomainIs(host, ".mtsbank.ru");
 
