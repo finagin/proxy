@@ -10,7 +10,8 @@ function FindProxyForURL(url, host)
 
     if (isLocal) return "DIRECT";
 
-    isYandex = dnsDomainIs(host, ".yandex.ru")
+    isYandex = dnsDomainIs(host, ".yandex.net")
+            || dnsDomainIs(host, ".yandex.ru")
             || shExpMatch(host, "*.yandex.*");
 
     is2ip = dnsDomainIs(host, ".2ip.ru")
